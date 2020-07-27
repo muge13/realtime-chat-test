@@ -27,7 +27,7 @@ io.on('connection', socket => {
     });
     socket.on('new_message', data => {
         let sentimentScore = sentiment.analyze(data.message);
-        console.log(sentimentScore);
+        // console.log(sentimentScore);
         console.log(`${socket.username}:${sentimentScore.score}|${data.message}`);
         
         io.sockets.emit('receive_message', {message: data.message, username: socket.username})
